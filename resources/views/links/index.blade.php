@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
     <div class="container">
         <div class="row">
@@ -9,24 +8,26 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>URL</th>
-                                <th>Visits</th>
-                                <th>Last Visited</th>
-                                <th>Actions</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Url</th>
+                                <th scope="col">Visits</th>
+                                <th scope="col">Last Visit</th>
+                                <th scope="col">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($links as $link)
-                                <tr>{{$link->name}}</tr>
-                                <tr><a href="{{$link->link}}">{{$link->link}}</a></tr>
-                                <tr>0</tr>
-                                <tr>Aug 3, 2020 - 12:30pm</tr>
-                                <tr><a href="/dashboard/links/{{$link->id}}">Edit</a></tr>
+                            @foreach($links as $link)
+                                <tr>
+                                    <td>{{ $link->name }}</td>
+                                    <td><a href="{{ $link->link }}">{{ $link->link }}</a></td>
+                                    <td>{{ $link->visits_count }}</td>
+                                    <td>{{ $link->latest_visit ? $link->latest_visit->created_at->format('M j Y - H:ia') : 'N/A' }}</td>
+                                    <td><a href="/dashboard/links/{{ $link->id }}">Edit</a></td>
+                                </tr>
                             @endforeach
                         </tbody>
                     </table>
-                    <a href="/dashboard/links/new" class="btn btn-primary">Add Link</a> 
+                    <a href="/dashboard/links/new" class="btn btn-primary">Add Link</a>
                 </div>
             </div>
         </div>

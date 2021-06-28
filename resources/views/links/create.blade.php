@@ -16,9 +16,20 @@
                                     <input type="text" id="name" name="name" class="form-control" placeholder="My YouTube Channel">
                                 </div>
                             </div>
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <label for="link">Link URL</label>
+                                    <input type="text" id="link" name="link" class="form-control" placeholder="https://youtube.com/users/my-channel">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                @csrf
+                                <button type="submit" class="btn btn-primary">Save Link</button>
+                            </div>
                         </div>
                     </form>
-                    <a href="/dashboard/links/new" class="btn btn-primary">Add Link</a> 
                 </div>
             </div>
         </div>
