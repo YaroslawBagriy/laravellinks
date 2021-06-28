@@ -6,14 +6,14 @@
         <div class="row">
             <div class="col-12 card">
                 <div class="card-body">
-                    <h2 class="card-title">Create a new link</h2>
+                    <h2 class="card-title">Editing link</h2>
                     
-                    <form action="/dashboard/links/new" method="post">
+                    <form action="/dashboard/links/{{ $link->id }}" method="post">
                         <div class="row">
                             <div class="col-12 col-md-6">
                                 <div class="form-group">
                                     <label for="name">Link Name</label>
-                                    <input type="text" id="name" name="name" class="form-control {{ $errors->first('name') ? 'is-invalid' : '' }}" placeholder="My YouTube Channel" value="{{ old('name') }}">
+                                    <input type="text" id="name" name="name" class="form-control {{ $errors->first('name') ? 'is-invalid' : '' }}" placeholder="My YouTube Channel" value="{{ $link->name }}">
                                     @if($errors->first('name'))
                                         <div class="invalid-feedback">
                                             {{ $error->first('name') }}
@@ -24,7 +24,7 @@
                             <div class="col-12 col-md-6">
                                 <div class="form-group">
                                     <label for="link">Link URL</label>
-                                    <input type="text" id="link" name="link" class="form-control {{ $errors->first('name') ? 'is-invalid' : '' }}" placeholder="https://youtube.com/users/my-channel" value="{{ old('link') }}">
+                                    <input type="text" id="link" name="link" class="form-control {{ $errors->first('name') ? 'is-invalid' : '' }}" placeholder="https://youtube.com/users/my-channel" value="{{ $link->name }}">
                                     @if($errors->first('name'))
                                         <div class="invalid-feedback">
                                             {{ $error->first('link') }}
