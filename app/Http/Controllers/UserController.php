@@ -8,7 +8,9 @@ use App\User;
 class UserController extends Controller
 {
     public function edit() {
-
+        return view('users.edit', [
+            'user' => Auth::user()
+        ]);
     }
 
     public function update(Request $request) {
