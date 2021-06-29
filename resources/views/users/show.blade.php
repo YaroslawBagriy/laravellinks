@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.links')
 @section('content')
-    <div class="container">
+    <div class="container py-4">
         <div class="row">
             <div class="col-12 col-md-6 offset-md-3">
                 @foreach($user->links as $link)
