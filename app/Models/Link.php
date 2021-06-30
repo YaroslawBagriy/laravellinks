@@ -19,4 +19,8 @@ class Link extends Model
     public function visits() {
         return $this->hasMany(Visits::class);
     }
+
+    public function latest_visit() {
+        return $this->hasOne(Visit::class)->latest();
+    }
 }

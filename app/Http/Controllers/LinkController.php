@@ -11,7 +11,7 @@ class LinkController extends Controller
     public function index() {
         
         // User has multiple links
-        $links = auth()->user()->links()->get();
+        $links = auth()->user()->links()->withCount('vists')->with('latest_visit')->get();
         return view('links.index', [
             'links' => $links
         ]);

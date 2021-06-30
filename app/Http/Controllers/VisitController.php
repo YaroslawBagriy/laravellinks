@@ -8,7 +8,17 @@ use App\Visit;
 
 class VisitController extends Controller
 {
-    public function store(Request $request, Link $link) {
 
+    public function store(Link $link, Request $request)
+    {
+        if ($link->link !== $request->input('link')) {
+            return abort(403);
+        }
+
+        return $link->visits()
+            ->create([
+                'user_agent' => $request->userAgent()
+            ]);
     }
+
 }

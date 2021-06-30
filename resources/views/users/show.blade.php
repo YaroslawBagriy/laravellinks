@@ -9,6 +9,7 @@
                             class="user-link d-block p-4 mb-4 rounded h3 text-center"
                             style="border: 2px solid {{ $textColor }}; color: {{ $textColor }}"
                             href="{{ $link->link }}"
+                            data-link-id="{{ $link->id }}"
                             target="_blank"
                             rel="nofollow"
                             data-link-id="{{ $link->id }}"
